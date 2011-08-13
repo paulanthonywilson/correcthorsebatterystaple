@@ -1,9 +1,10 @@
 input#generated-password {
-  width: 300px;
+  width: 400px;
+  font-size: 1.2em;
 }
 
 #generator{
-  display: block;
+  margin: 20px;
 }
 #generator input{
   float: left;
