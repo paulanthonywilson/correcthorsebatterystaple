@@ -1,0 +1,13 @@
+<input type="text"  id="generated-password" value="<%=@password%>" onselect="select_text();" onclick="select_password();" readonly="readonly">
+<%= @password -%>
+<%=form_tag('/passwords') do -%>
+  <%= submit_tag "Generate a password" %>
+<% end -%>
+
+<script>
+  function select_password(){
+    var passwordElement = document.getElementById('generated-password');
+    passwordElement.focus();
+    passwordElement.select();
+  }
+</script>
