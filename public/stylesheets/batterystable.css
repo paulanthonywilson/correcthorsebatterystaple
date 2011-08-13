@@ -1,3 +1,15 @@
 input#generated-password {
   width: 300px;
 }
+
+#generator{
+  display: block;
+}
+#generator input{
+  float: left;
+}
+
+p#xkcd-image{
+  padding: 20px;
+  clear: both;
+}
