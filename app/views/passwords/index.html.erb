@@ -1,11 +1,15 @@
 <h1>XKCD 936 compliant password generator (I think)</h1>
 
-<div id="generator">
-<input type="text"  id="generated-password" value="<%=@password%>" onselect="select_text();" onclick="select_password();" readonly="readonly">
-<%=form_tag('/passwords', :method=>'get') do -%>
-  <%= submit_tag "Generate a password" %>
-<% end -%>
+<div id='generator-box'>
+  <p id='error'>Ooops, there was a bit of a problem. Try again?</p>
+  <div id="generator">
+    <input type="text"  id="generated-password" value="<%=@password%>" onselect="select_text();" onclick="select_password();" readonly="readonly">
+    <%=form_tag('/passwords', :method=>'get', :id=>'generate-password-form', :remote=>true) do -%>
+      <%= submit_tag "Generate a password" %>
+    <% end -%>
+    <%= image_tag('ajax-loader.gif', :id=>'ajax-loader') %>
 
+  </div>
 </div>
 
 <div id="blurb">
@@ -29,4 +33,10 @@
     passwordElement.focus();
     passwordElement.select();
   }
+
+  $('#generate-password-form')
+  .bind('ajax:beforeSend', function(){$('#ajax-loader').show();})
+  .bind('ajax:complete', function(){$('#ajax-loader').hide();})
+  .bind('ajax:error', function(){$('#error').show(); $('#generated-password').val('');})
+  .bind('ajax:success', function(){$('#error').hide();});
 </script>

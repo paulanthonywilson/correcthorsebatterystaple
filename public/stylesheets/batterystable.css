@@ -8,6 +8,11 @@ input#generated-password {
   padding: 20px 0 ;
 }
 
+#generator-box{
+  width: 600px;
+  margin: auto;
+}
+
 #generator{
   width: 600px;
   margin: auto;
@@ -22,5 +27,14 @@ input#generated-password {
 p#xkcd-image{
   padding: 20px;
   clear: both;
+}
+
+img#ajax-loader{
+  display: none;
+}
+
+p#error{
+  display: none;
+  color: red;
 }
 
