@@ -5,6 +5,18 @@
   <div id="generator">
     <input type="text"  id="generated-password" value="<%=@password%>" onselect="select_text();" onclick="select_password();" readonly="readonly">
     <%=form_tag('/passwords', :method=>'get', :id=>'generate-password-form', :remote=>true) do -%>
+      <p>
+        <%= label "min_word_count", "Minimum words in password:" %>
+        <%= select_tag "min_word_count", options_for_select([4,5,6,7,8], 4) %>
+      </p>
+      <p>
+        <%= label "min_length", "Minimum password length:" %>
+        <%= select_tag "min_length", options_for_select([15, 20, 25, 28,30, 35], 28) %>
+      </p>
+      <p>
+        <%= label "separator", "Word separator:" %>
+        <%= select_tag "separator", options_for_select(["", "-", "_", "@", 1], "-") %>
+      </p>
       <%= submit_tag "Generate a password" %>
     <% end -%>
     <%= image_tag('ajax-loader.gif', :id=>'ajax-loader') %>
@@ -34,9 +46,14 @@
     passwordElement.select();
   }
 
-  $('#generate-password-form')
-  .bind('ajax:beforeSend', function(){$('#ajax-loader').show();})
-  .bind('ajax:complete', function(){$('#ajax-loader').hide();})
-  .bind('ajax:error', function(){$('#error').show(); $('#generated-password').val('');})
-  .bind('ajax:success', function(){$('#error').hide();});
+  $(document).ready(function(){
+    $('#generate-password-form')
+    .bind('ajax:beforeSend', function(){$('#ajax-loader').show();})
+    .bind('ajax:complete', function(){$('#ajax-loader').hide();})
+    .bind('ajax:error', function(){$('#error').show(); $('#generated-password').val('');})
+    .bind('ajax:success', function(){$('#error').hide();});
+
+    $('#word-count-slider').slider({min:1, max: 6, value:4});
+  });
+
 </script>

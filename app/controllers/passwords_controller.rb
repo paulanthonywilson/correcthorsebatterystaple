@@ -3,10 +3,10 @@ class PasswordsController < ApplicationController
   end
 
   def create
-    @password = Word.random_password(4)
-    respond_to do |f|
-      f.html {render :action=>:index}
-      f.js {render 'display_password'}
+    @password = Word.random_password(params[:min_word_count].to_i, params[:min_length].to_i, params[:separator])
+    respond_to do |format|
+      format.html {render :action=>:index}
+      format.js {render "display_password"}
     end
   end
 

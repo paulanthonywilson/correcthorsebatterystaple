@@ -1,5 +1,5 @@
 input#generated-password {
-  width: 400px;
+  width: 610px;
   font-size: 1.2em;
 }
 
@@ -18,10 +18,13 @@ input#generated-password {
   margin: auto;
   border: dotted 1px red;
   padding: 30px;
-  height: 40px;
+  height: 180px;
 }
-#generator input{
+
+#generator label{
+  width: 200px;
   float: left;
+  display: block;
 }
 
 p#xkcd-image{
