@@ -8,7 +8,7 @@ describe Word do
 
     it "returns the random text of a word" do
 
-      Word.should_receive(:rand).with(2000).and_return(50)
+      SecureRandom.should_receive(:random_number).with(2000).and_return(50)
       Word.should_receive(:find).with(:first, :offset=>50).and_return(Word.new(:spelling=>"alligator"));
       assert_equal "alligator", Word.random_word
     end

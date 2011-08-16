@@ -1,7 +1,7 @@
 class Word < ActiveRecord::Base
 
   def self.random_word
-    return find(:first, :offset=>rand(count)).spelling
+    return find(:first, :offset=>SecureRandom.random_number(count)).spelling
   end
 
   def self.random_password(minimum_word_count, minimum_password_length=1, separator="-")
