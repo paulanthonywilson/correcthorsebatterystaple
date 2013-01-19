@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~>3.0.9'
+gem 'rails', '~>3.0.19'
 gem 'jquery-rails', '~> 1.0.12'
 
 group :development, :test do
