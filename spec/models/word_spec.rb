@@ -8,8 +8,11 @@ describe Word do
 
     it "returns the random text of a word" do
 
+      mock_relation = double("relation")
       SecureRandom.should_receive(:random_number).with(2000).and_return(50)
-      Word.should_receive(:find).with(:first, :offset=>50).and_return(Word.new(:spelling=>"alligator"));
+      Word.should_receive(:offset).with(50).and_return(mock_relation);
+      mock_relation.should_receive(:limit).with(1).and_return([Word.new(spelling:"alligator")])
+      # Word.should_receive(:find).with(:first, :offset=>50).and_return(Word.new(:spelling=>"alligator"));
       assert_equal "alligator", Word.random_word
     end
   end
