@@ -12,7 +12,7 @@ describe PasswordsController do
 
   describe "post create" do
     before(:each) do
-      Word.stub(:random_password).and_return("correct-horse-battery-staple")
+      allow(Word).to receive(:random_password).and_return("correct-horse-battery-staple")
       post :create
     end
     it "renders index" do
