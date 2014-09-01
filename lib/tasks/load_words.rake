@@ -1,5 +1,4 @@
 
-self.extend(BookParser::WordParser)
 
 def load_words filename
   if File.directory?(filename) 
@@ -7,7 +6,7 @@ def load_words filename
   else
     File.open(filename) do |f|
       f.each do |line|
-        parse_line(line){|word| Word.insert_spelling_if_new(word)} 
+        BookParser::WordParser.parse_line(line){|word| Word.insert_spelling_if_new(word)} 
       end
     end
   end
