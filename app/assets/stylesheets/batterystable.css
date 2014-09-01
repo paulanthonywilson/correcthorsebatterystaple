@@ -1,5 +1,5 @@
 input#generated-password {
-  width: 610px;
+  width: 45em;
   font-size: 1.2em;
 }
 
@@ -10,12 +10,11 @@ input#generated-password {
 
 #generator-box{
   width: 600px;
-  margin: auto;
+  margin: 2em;
 }
 
 #generator{
-  width: 600px;
-  margin: auto;
+  width: 60em;
   border: dotted 1px red;
   padding: 30px;
   height: 180px;

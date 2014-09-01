@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20110813154232) do
+ActiveRecord::Schema.define(version: 20140901155208) do
 
   create_table "words", force: true do |t|
     t.string   "spelling"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "words", ["spelling"], name: "index_words_on_spelling", unique: true
 
 end

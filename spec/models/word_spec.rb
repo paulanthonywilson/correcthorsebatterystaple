@@ -43,4 +43,17 @@ describe Word do
       assert_equal "ohaaaoh", Word.random_password(1,7, "aaa")
     end
   end
+
+
+  describe "insert spelling if new" do
+    it "inserts a spelling" do
+      Word.insert_spelling_if_new "staple"
+      expect(Word.where(spelling: "staple").count).to eq(1)
+    end
+    it "inserts a spelling only once" do
+      Word.insert_spelling_if_new "staple"
+      Word.insert_spelling_if_new "staple"
+      expect(Word.where(spelling: "staple").count).to eq(1)
+    end
+  end
 end
