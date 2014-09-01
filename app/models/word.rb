@@ -15,4 +15,13 @@ class Word < ActiveRecord::Base
     end
     result
   end
+
+  def self.insert_spelling_if_new spelling
+    Word.create!(spelling: spelling)
+  rescue ActiveRecord::RecordNotUnique => e
+    # ignore
+  end
+
+
+
 end
