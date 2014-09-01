@@ -1,9 +1,9 @@
-<h1>XKCD 936 compliant password generator (I think)</h1>
+<h1>XKCD 936 compliant password generator</h1>
 
 <div id='generator-box'>
   <p id='error'>Ooops, there was a bit of a problem. Try again?</p>
   <div id="generator">
-    <input type="text"  id="generated-password" value="<%=@password%>" onselect="select_text();" onclick="select_password();" readonly="readonly">
+    <input type="text"  id="generated-password" value="<%=@password%>" onselect="select_password();" onclick="select_password();"/> 
     <%=form_tag('/passwords', :method=>'get', :id=>'generate-password-form', :remote=>true) do -%>
       <p>
         <%= label "min_word_count", "Minimum words in password:" %>
@@ -25,10 +25,11 @@
 </div>
 
 <div id="blurb">
+ 
+  <p>Designed to generate memorable and secure passwords, this is the original <a href="http://xkcd.com/936/">XKCD 936</a> based password generator. The source is <a href="https://github.com/paulanthonywilson/correcthorsebatterystaple">here</a>.</p>
 
-<p><a href="http://xkcd.com/936/">XKCD 936</a> (below) was a revelation to me. I felt fooled by previous password advice.  Here you can generate a password of a minumum length made up of a minumum number of words from the 2,284 word-long <a href="http://jbauman.com/aboutgsl.html">General Service List</a>.</p>
+  <p><strong>Now extra secure:</strong> generates passwords from a pool of 26,626 words, 12 times more than the original version.</p>
 
-<p><em>Disclaimer:</em> I am neither a security expert, or versed in Information Theory.  I do not know for sure choosing 4 words from a 2,284 long list gives good enough passwords.  If you want to enlighten me, I am <a href="https://twitter.com/paulanthonywils">@paulanthonywils</a> on Twitter.</p>
 
 </div>
 
@@ -42,8 +43,8 @@
 <script>
   function select_password(){
     var passwordElement = document.getElementById('generated-password');
-    passwordElement.focus();
     passwordElement.select();
+    return true;
   }
 
   $(document).ready(function(){
