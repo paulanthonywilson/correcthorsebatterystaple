@@ -2,14 +2,15 @@ source 'https://rubygems.org'
 
 # ruby "2.1.2"
 
-gem 'rails', '~> 4.2'
+gem 'rails', '~> 5.2'
 
-gem 'pg', '~> 0.15'
+gem 'pg'
 gem 'unicorn'
 gem 'rails_12factor'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 gem 'sass-rails' #, '~> 4.0.3'
