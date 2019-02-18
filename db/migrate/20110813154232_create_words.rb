@@ -1,4 +1,4 @@
-class CreateWords < ActiveRecord::Migration
+class CreateWords < ActiveRecord::Migration[4.2]
   def self.up
     create_table :words do |t|
       t.string :spelling
