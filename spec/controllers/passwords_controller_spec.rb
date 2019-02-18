@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe PasswordsController do
 
+  render_views
+  
   describe "get index" do
     it "displays the index page" do
       get :index
