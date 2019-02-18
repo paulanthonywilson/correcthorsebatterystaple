@@ -23,6 +23,3 @@ test:
   <<: *default
   database: correcthorse_test
 
-production:
-  <<: *default
-  database: db/production.sqlite3
